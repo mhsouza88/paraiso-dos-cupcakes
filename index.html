@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Paraíso dos Cupcakes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Paraíso dos Cupcakes</h1>
+      <p>Loja online de venda de cupcakes</p>
+    </header>
+
+    <main class="container">
+      <!-- Catálogo de cupcakes -->
+      <section class="card" id="catalog-section">
+        <h2>Catálogo de Cupcakes</h2>
+
+        <!-- Controles do catálogo (busca) -->
+        <div class="catalog-controls">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar cupcake pelo nome..."
+          />
+        </div>
+
+        <div id="cupcake-list" class="cupcake-list">
+          <!-- Os cupcakes são inseridos via JavaScript -->
+        </div>
+
+        <hr class="hr-large" />
+
+        <h3>Cadastrar novo cupcake</h3>
+        <form id="new-cupcake-form" class="new-cupcake-form">
+          <label for="new-cupcake-name">Nome</label>
+          <input
+            type="text"
+            id="new-cupcake-name"
+            required
+            placeholder="Ex: Cupcake de Limão Siciliano"
+          />
+
+          <label for="new-cupcake-description">Descrição</label>
+          <input
+            type="text"
+            id="new-cupcake-description"
+            required
+            placeholder="Massa leve com cobertura de limão..."
+          />
+
+          <label for="new-cupcake-price">Preço (R$)</label>
+          <input
+            type="text"
+            id="new-cupcake-price"
+            required
+            placeholder="Ex: 8,50"
+          />
+
+          <button type="submit" class="primary-btn">Salvar cupcake</button>
+        </form>
+        <p id="new-cupcake-message" class="message"></p>
+      </section>
+
+      <!-- Carrinho + Finalização -->
+      <section class="card" id="cart-section">
+        <h2>Carrinho</h2>
+        <div id="cart-items"></div>
+        <p class="cart-total">Total: R$ <span id="cart-total">0,00</span></p>
+
+        <form id="checkout-form">
+          <label for="customer-name">Nome do cliente</label>
+          <input
+            type="text"
+            id="customer-name"
+            placeholder="Informe o nome do cliente"
+            required
+          />
+
+          <button type="submit" class="primary-btn">Finalizar venda</button>
+        </form>
+        <p id="cart-message" class="message"></p>
+      </section>
+    </main>
+
+    <!-- Vendas (CRUD) -->
+    <section class="card card-wide" id="sales-section">
+      <h2>Vendas registradas</h2>
+      <table id="sales-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Data</th>
+            <th>Itens</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Vendas renderizadas via JavaScript -->
+        </tbody>
+      </table>
+      <p id="sales-empty" class="message">Nenhuma venda registrada ainda.</p>
+    </section>
+
+    <!-- Modal de confirmação para exclusão de venda -->
+    <div id="delete-modal" class="modal-overlay hidden">
+      <div class="modal">
+        <h3>Confirmar exclusão</h3>
+        <p>Deseja realmente excluir esta venda?</p>
+        <div class="modal-actions">
+          <button id="confirm-delete-btn" class="danger-btn">Excluir</button>
+          <button id="cancel-delete-btn" class="secondary-btn">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão voltar ao topo -->
+    <button id="back-to-top" class="back-to-top" title="Voltar ao topo">
+      ↑
+    </button>
+
+    <footer class="footer">
+      <small>Projeto Integrador - Paraíso dos Cupcakes</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
